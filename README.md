@@ -38,3 +38,8 @@ Estruturas de repetição (while, for)
 Estruturas condicionais (if, else)
 Listas em Python
 Entrada e saída de dados no terminal
+
+VERSÃO 1.2:
+- correção de bugs ao digitar dados invalidos
+- melhor vizualização dos produtos cadastrados
+- teste de cores 

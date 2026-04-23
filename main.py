@@ -1,5 +1,9 @@
 import time
 
+
+
+#lista dos valores
+
 estoque = []
 
 while True:
@@ -8,7 +12,7 @@ while True:
 
     print("" \
     "    _____________________________\n"
-    "   |   GERENCIADOR DE ARQUIVOS   |\n"  \
+    "   |   GERENCIADOR DE PRODUTOS   |\n"  \
     "   |_____________________________|\n"
     "   |                             |\n"
     "   |   [1] ADICIONAR PRODUTO     | \n" \
@@ -18,62 +22,69 @@ while True:
     "   |_____________________________|\n")
 
     time.sleep(1)
-    
-    inicio = input("Digite o numero da opção que você quer selecionar: ")
+    try:
+        inicio = input("Digite o numero da opção que você quer selecionar: ")
 
-    if inicio != "1" and inicio != "2" and inicio != "3" and inicio != "4":
-        print("OPÇÃO INVALIDA...")
-        continue
-    
-    #adicionar produtos
+        if inicio != "1" and inicio != "2" and inicio != "3" and inicio != "4":
+            print("OPÇÃO INVALIDA...")
+            continue
+        
+        #adicionar produtos
 
-    else:
-        if inicio == "1":
-            print(" ________________________\n"
-                 "|  CADASTRO DE PRODUTOS  |\n"
-                 "|________________________|\n")
-                 
-            itens = int(input("Quantos itens você deseja cadastrar? "))
+        else:
+            if inicio == "1":
+                print(" ________________________\n"
+                    "|  CADASTRO DE PRODUTOS  |\n"
+                    "|________________________|\n")
+                    
+                itens = int(input("Quantos itens você deseja cadastrar? "))
 
-            for i in range(itens):
-                estoque.append(input("\nColoque o produto que deseja:\n"))
-            print("\nCADASTRO CONCLUIDO...")
-            time.sleep(1)
+                for i in range(itens):
+                    estoque.append(input("\nColoque o produto que deseja:\n"))
+                print("\n\033[32mCADASTRO CONCLUIDO...\033[0m")
+                time.sleep(1)
 
-# remover os produtos
+    # remover os produtos
 
-        if inicio == "2":
-            
-            while True:
-                print("| REMOVER ITEM |")
-                remover = input("Digite o produto que você quer remover: ")
-                if remover in estoque:
-                    estoque.remove(remover)
-                    time.sleep(1)
-                    print("PRODUTOS ATUALIZADOS...")
-                else:
-                    print("PRODUTO INVALIDO\n")
-                sair_remover = int(input("| Deseja remover mais produtos? |\n"
-                                         "|          [1] SIM              |\n"
-                                         "|          [2] NÃO              |\n"))
-                if sair_remover == 2:
-                    print("VOLTANDO...")
-                    time.sleep(1)
-                    break
+            if inicio == "2":
+                
+                while True:
+                    print("| REMOVER ITEM |")
+                    remover = input("Digite o produto que você quer remover: ")
+                    if remover in estoque:
+                        estoque.remove(remover)
+                        time.sleep(1)
+                        print("PRODUTOS ATUALIZADOS...")
+                    else:
+                        print("PRODUTO INVALIDO\n")
+                    sair_remover = int(input("| Deseja remover mais produtos? |\n"
+                                            "|          [1] SIM              |\n"
+                                            "|          [2] NÃO              |\n"))
+                    if sair_remover == 2:
+                        print("VOLTANDO...")
+                        time.sleep(1)
+                        break
 
-#visualizar produtos
+    #visualizar produtos
 
-        if inicio == "3":
-            print("| VISUALIZAR ITEM |")
-            print("seu estoque no momento é: ", estoque)
-            time.sleep(3)
+            if inicio == "3":
+                print("| VISUALIZAR ITEM |")
+                endereco = 1
+                for itens in estoque:
+                    print(endereco, "-", itens, end="\n")
+                    endereco += 1
+                time.sleep(3)
 
-#sair do programa
+    #sair do programa
 
-        if inicio == "4":
-            time.sleep(1)
-            print("|  ESPERO QUE TENHA GOSTADO DO PROTÓTIPO,  | \n" \
-                  "|  ATÉ A PROXIMA                           |")
-            time.sleep(1)
-            break
+            if inicio == "4":
+                time.sleep(1)
+                print("|  ESPERO QUE TENHA GOSTADO DO PROTÓTIPO,  | \n"
+                      "|  SEMPRE ABERTO A FEEDBACKS               | \n" \
+                    "|  ATÉ A PROXIMA                           |")
+                time.sleep(1)
+                break
 
+    except:
+        print("\n\033[31mAlgum valor errado, tente novamente...\033[0m")
+        time.sleep(1)
