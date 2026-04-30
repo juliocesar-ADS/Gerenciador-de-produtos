@@ -39,7 +39,8 @@ Estruturas condicionais (if, else)
 Listas em Python
 Entrada e saída de dados no terminal
 
-VERSÃO 1.2:
+VERSÃO 1.3:
 - correção de bugs ao digitar dados invalidos
 - melhor vizualização dos produtos cadastrados
-- teste de cores 
+- teste de cores
+- Codigo mais organizado
