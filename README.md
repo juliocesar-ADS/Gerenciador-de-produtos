@@ -52,7 +52,8 @@ Versão 1.3
 - Visualização dos produtos em formato de tabela
 - Organização do código em módulos (`main.py`, `produtos.py`, `conexao.py`)
 
-VERSÃO 1.2:
+VERSÃO 1.3:
 - correção de bugs ao digitar dados invalidos
 - melhor vizualização dos produtos cadastrados
-- teste de cores 
+- teste de cores
+- Codigo mais organizado
