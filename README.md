@@ -26,10 +26,11 @@ Ao iniciar o programa, você verá um menu com opções:
 [3] VISUALIZAR PRODUTO
 [4] SAIR
 📌 Exemplo de uso:
-Escolha 1 para cadastrar produtos
-Escolha 2 para remover itens
-Escolha 3 para ver o estoque atual
-Escolha 4 para sair do sistema
+- *[1]* Cadastra um novo produto informando nome e quantidade
+- *[2]* Remove um produto pelo ID
+- *[3]* Exibe todos os produtos cadastrados no banco
+- *[4]* Encerra o programa
+
 🧠 Objetivo do projeto
 
 Este projeto foi desenvolvido com o objetivo de praticar:
@@ -38,6 +39,18 @@ Estruturas de repetição (while, for)
 Estruturas condicionais (if, else)
 Listas em Python
 Entrada e saída de dados no terminal
+Conexão com banco de dados MySQL
+Operações CRUD (Create, Read, Delete)
+Organização de código em módulos
+
+
+## 📝 Histórico de versões
+
+Versão 1.3
+- Integração com banco de dados MySQL
+- Dados agora persistem entre execuções
+- Visualização dos produtos em formato de tabela
+- Organização do código em módulos (`main.py`, `produtos.py`, `conexao.py`)
 
 VERSÃO 1.2:
 - correção de bugs ao digitar dados invalidos

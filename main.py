@@ -1,4 +1,5 @@
 import time
+from produtos import *
 
 
 # lista dos valores
@@ -11,42 +12,57 @@ def adicionar():
           "|  CADASTRO DE PRODUTOS  |\n"
           "|________________________|\n")
 
-    itens = int(input("Quantos itens você deseja cadastrar? "))
+    nome = input("Nome: ")
+    quantidade = input("Quantidade: ")
 
-    for i in range(itens):
-        estoque.append(input("\nColoque o produto que deseja:\n"))
-    print("\n\033[32mCADASTRO CONCLUIDO...\033[0m")
-    time.sleep(1)
+    produtos_salvos(
+        nome,
+        quantidade
+    )
 
 #remover itens da lista
 def delete():
-    while True:
-        print("| REMOVER ITEM |")
-        remover = input("Digite o nome do produto: ")
-        if remover in estoque:
-            estoque.remove(remover)
-            time.sleep(1)
-            print("PRODUTOS ATUALIZADOS...")
+
+    try:
+
+        id = int(input("ID para deletar: "))
+        confirmar = input(f"Tem certeza que quer deletar o ID {id}? (s/n): ")
+        if confirmar.lower() == "s":
+            deletar_produto(id)
         else:
-            print("PRODUTO INVALIDO\n")
-        sair_remover = int(input("| Deseja remover mais produtos? |\n"
-                                    "|          [1] SIM              |\n"
-                                    "|          [2] NÃO              |\n"))
-        if sair_remover == 2:
-            print("VOLTANDO...")
-            time.sleep(1)
-            break
-        else:
-            print("Numero invalido")
+            print("Operação cancelada.")
+
+    except ValueError:
+
+        print("Digite apenas o ID em Números!")
 
 #visualizar lista de produtos
 def visualizar():
-    print("| VISUALIZAR ITEM |")
-    endereco = 1
-    for itens in estoque:
-        print(endereco, "-", itens, end="\n")
-        endereco += 1
-    time.sleep(3)
+    produtos = listar_produtos()
+
+    largura = 40
+
+    borda     = "  +" + "-" * largura + "+"
+    titulo    = "  |" + "LISTA DE PRODUTOS".center(largura) + "| "
+    cabecalho = "  |" + f" {'ID':<5} {'NOME':<20} {'QTD':<10}" + "  |"
+
+    print(borda)
+    print(titulo)
+    print(borda)
+    print(cabecalho)
+    print(borda)
+
+    if not produtos:
+        vazio = "  |" + "Nenhum produto cadastrado!".center(largura) + "|"
+        print(vazio)
+    else:
+        for produto in produtos:
+            id, nome, quantidade = produto
+            linha = "  |" + f" {id:<5} {nome:<20} {quantidade:<10}" + "  |"
+            print(linha)
+
+    print(borda)
+    time.sleep(2)
 
 #sair do programa
 def sair():
