@@ -46,7 +46,7 @@ Organização de código em módulos
 
 ## 📝 Histórico de versões
 
-Versão 1.3
+Versão 1.4
 - Integração com banco de dados MySQL
 - Dados agora persistem entre execuções
 - Visualização dos produtos em formato de tabela
